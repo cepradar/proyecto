@@ -10,12 +10,16 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import db.Conexion;
 import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Carlos Prada
  */
 public class NewJFrame extends javax.swing.JFrame implements InterfaceControllerInt {
+    DefaultTableModel modelo;
     
     /**
      * Creates new form NewJFrame
@@ -23,6 +27,11 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
     public NewJFrame() {
         initComponents();
         jDfechaActual.setCalendar(this.horaActual());
+        
+        String[] titulos = {"ID", "Nombre", "apellido"};
+        modelo = new DefaultTableModel(null, titulos);
+        tblClientes.setModel(modelo);
+        mostrarDatosCliente();
     }
 
     /**
@@ -65,8 +74,9 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
         jLabel11 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
+        tblClientes = new javax.swing.JTable();
+        btnEditar = new javax.swing.JButton();
+        btnBorrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -252,7 +262,7 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -263,12 +273,24 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        tblClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblClientesMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblClientes);
 
-        jButton3.setText("Actualizar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        btnBorrar.setText("Borrar");
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
             }
         });
 
@@ -284,11 +306,13 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
                         .addGap(32, 32, 32)
-                        .addComponent(jButton3))
+                        .addComponent(btnEditar)
+                        .addGap(42, 42, 42)
+                        .addComponent(btnBorrar))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(422, Short.MAX_VALUE))
+                        .addGap(57, 57, 57)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(458, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,10 +321,11 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(btnEditar)
+                    .addComponent(btnBorrar))
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("BD", jPanel3);
@@ -338,6 +363,8 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
             this.jTextField1.setText("guardar");
             guardarOt();
         }else this.jTextField1.setText("no guardar");
+        
+        this.mostrarDatosCliente();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -348,9 +375,40 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+      Conexion objConexion = new Conexion();
+        
+        ClientesBl objClientesBl = recuperarDataGUI();
+        
+        String strSentenciaInsert = String.format("UPDATE Clientes SET Nombre='%s', Documento='%s' WHERE ID=%d",objClientesBl.getNombre(), objClientesBl.getDocumento(), objClientesBl.getID());
+        
+        objConexion.ejecutarSentenciaSQL(strSentenciaInsert);
+        
+        this.mostrarDatosCliente();
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    //mostrar datos de la seleccion en la tabla
+    private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
+        if(evt.getClickCount()==1){
+            
+            JTable receptor = (JTable)evt.getSource();
+            
+            txtID.setText(receptor.getModel().getValueAt(receptor.getSelectedRow(), 0).toString());
+            txtNombre.setText(receptor.getModel().getValueAt(receptor.getSelectedRow(), 1).toString());
+            txtDocumento.setText(receptor.getModel().getValueAt(receptor.getSelectedRow(), 2).toString());
+        }
+    }//GEN-LAST:event_tblClientesMouseClicked
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        Conexion objConexion = new Conexion();
+        
+        ClientesBl objClientesBl = recuperarDataGUI();
+        
+        String strSentenciaInsert = String.format("DELETE FROM Clientes WHERE ID=%d",objClientesBl.getID());
+        objConexion.ejecutarSentenciaSQL(strSentenciaInsert);
+        
+        this.mostrarDatosCliente();
+    }//GEN-LAST:event_btnBorrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -388,9 +446,10 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBorrar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private com.toedter.calendar.JDateChooser jDfechaActual;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
@@ -411,13 +470,13 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldArticulo;
     private javax.swing.JTextField jTextFieldDescripcion;
     private javax.swing.JTextField jTextFieldDireccion;
     private javax.swing.JTextField jTextFieldModelo;
     private javax.swing.JTextField jTextFieldSerie;
+    private javax.swing.JTable tblClientes;
     private javax.swing.JTextField txtDocumento;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombre;
@@ -438,19 +497,7 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
         String strSentenciaInsert = String.format("INSERT INTO Clientes (ID, Nombre, apellido, documento, telefono)"
                 + " VALUES (null, '%s', '%s', '%s', '%s')", objClientesBl.getNombre(), objClientesBl.getApellido(), objClientesBl.getDocumento(), objClientesBl.getTelefono());
         objConexion.ejecutarSentenciaSQL(strSentenciaInsert);
-        try {
-            ResultSet resultado = objConexion.consultarRegistros("SELECT * FROM Clientes");
-            
-            while (resultado.next()) {
-                System.out.println(resultado.getString("ID"));
-                System.out.println(resultado.getString("Nombre"));
-                System.out.println(resultado.getString("apellido"));
-                System.out.println(resultado.getString("documento"));
-                System.out.println(resultado.getString("telefono"));
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        
     }
     
     public ClientesBl recuperarDataGUI(){
@@ -463,6 +510,33 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
         objClientesBl.setDocumento(txtDocumento.getText());
         objClientesBl.setTelefono(txtTelefono.getText());
         return objClientesBl;
+    }
+    
+    public void mostrarDatosCliente(){
+        
+        while(modelo.getRowCount()>0){
+            modelo.removeRow(0);
+        }
+        
+        Conexion objConexion = new Conexion();
+        try {
+            ResultSet resultado = objConexion.consultarRegistros("SELECT * FROM Clientes");
+            
+            while (resultado.next()) {
+                System.out.println(resultado.getString("ID"));
+                System.out.println(resultado.getString("Nombre"));
+                System.out.println(resultado.getString("apellido"));
+                System.out.println(resultado.getString("documento"));
+                System.out.println(resultado.getString("telefono"));
+                //recuperando los datos del cliente para mostrarlos en la tabla
+                Object[] oCliente = {resultado.getString("ID"), resultado.getString("Nombre"), resultado.getString("Apellido")};
+                
+                modelo.addRow(oCliente);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
     }
     
 }

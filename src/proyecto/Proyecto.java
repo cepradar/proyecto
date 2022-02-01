@@ -4,6 +4,7 @@
  */
 package proyecto;
 
+import db.Conexion;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import modelo.Admin;
@@ -30,13 +31,14 @@ public class Proyecto {
         System.out.println("........................");
         System.out.println(admin.toString());*
          */        
-        ArrayList<Persona> clientes = new ArrayList<>();
-        Admin admin = new Admin("Carlos",1098779983, "300863938","cra 7 # 13-17");
-        Tecnico tecnico = new Tecnico("juan",1098273749,"3002452345","Cra 2 # 3-43");
-        System.out.println(tecnico.toString());
+        //ArrayList<Persona> clientes = new ArrayList<>();
+       // Admin admin = new Admin("Carlos",1098779983, "300863938","cra 7 # 13-17");
+        //Tecnico tecnico = new Tecnico("juan",1098273749,"3002452345","Cra 2 # 3-43");
+        //System.out.println(tecnico.toString());
         //tecnico.crearCliente(tecnico, clientes);
-        System.out.println(clientes);
+       // System.out.println(clientes);
         //JFrame v = new NewJFrame();
+        Conexion con = new Conexion();
     }
     
 }

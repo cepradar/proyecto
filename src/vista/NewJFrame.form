@@ -132,7 +132,7 @@
                                       <Component id="jTextFieldSerie" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jTextFieldModelo" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jTextFieldArticulo" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldDireccion" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtDireccion" alignment="0" max="32767" attributes="0"/>
                                       <Component id="txtTelefono" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -140,8 +140,8 @@
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldDescripcion" max="32767" attributes="0"/>
+                                      <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldDescripcion" pref="337" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -196,7 +196,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -219,7 +219,7 @@
                               <Component id="jTextFieldDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="230" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -281,7 +281,7 @@
                     <Property name="text" type="java.lang.String" value="jTextField3"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldDireccion">
+                <Component class="javax.swing.JTextField" name="txtDireccion">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField4"/>
                   </Properties>
@@ -306,12 +306,12 @@
                     <Property name="text" type="java.lang.String" value="jTextField8"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="btnGuardar">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="OK"/>
+                    <Property name="text" type="java.lang.String" value="Guardar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel10">

@@ -11,17 +11,9 @@ package modelo;
 public class Persona {
     
     public String nombre;
-    protected double documento;
+    protected String documento;
     protected String telefono;
     protected String direccion;
-    protected int idTipoUsuario; //1-Admin, 2-Tecnico, 3-Cliente
-
-    public Persona(String nombre, double documento, String telefono, String direccion) {
-        this.nombre = nombre;
-        this.documento = documento;
-        this.telefono = telefono;
-        this.direccion = direccion;
-    }
 
     public String getNombre() {
         return nombre;
@@ -31,11 +23,11 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public double getDocumento() {
+    public String getDocumento() {
         return documento;
     }
 
-    public void setDocumento(double documento) {
+    public void setDocumento(String documento) {
         this.documento = documento;
     }
 
@@ -55,9 +47,6 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    public int getIdTipoUsuario() {
-        return idTipoUsuario;
-    }
 
     @Override
     public String toString() {

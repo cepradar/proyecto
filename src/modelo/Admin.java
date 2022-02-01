@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class Admin extends Persona implements TecnicoControllerInt{
     
-    public Admin(String nombre, String apellido, int documento, String telefono, String direccion) {
-        super(nombre, apellido, documento, telefono, direccion);
+    public Admin(String nombre, int documento, String telefono, String direccion) {
+        super(nombre, documento, telefono, direccion);
         this.idTipoUsuario = 1;
     }
 

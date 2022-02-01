@@ -11,15 +11,13 @@ package modelo;
 public class Persona {
     
     public String nombre;
-    public String apellido;
     protected double documento;
     protected String telefono;
     protected String direccion;
     protected int idTipoUsuario; //1-Admin, 2-Tecnico, 3-Cliente
 
-    public Persona(String nombre, String apellido, double documento, String telefono, String direccion) {
+    public Persona(String nombre, double documento, String telefono, String direccion) {
         this.nombre = nombre;
-        this.apellido = apellido;
         this.documento = documento;
         this.telefono = telefono;
         this.direccion = direccion;
@@ -31,14 +29,6 @@ public class Persona {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
     }
 
     public double getDocumento() {
@@ -73,7 +63,6 @@ public class Persona {
     public String toString() {
         return "Persona{"
                 + "nombre='" + nombre + '\''
-                + ", apellido='" + apellido + '\''
                 + ", documento=" + documento
                 + ", telefono=" + telefono
                 + ", direccion='" + direccion + '\''

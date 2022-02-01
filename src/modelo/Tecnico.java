@@ -14,19 +14,14 @@ import controlador.TecnicoControllerInt;
  */
 public class Tecnico extends Persona implements TecnicoControllerInt{
     
-    public Tecnico(String nombre, String apellido, double documento, String telefono, String direccion) {
-        super(nombre, apellido, documento, telefono, direccion);
+    public Tecnico(String nombre, double documento, String telefono, String direccion) {
+        super(nombre, documento, telefono, direccion);
         this.idTipoUsuario = 2;
     }
 
     @Override
     public String getNombre() {
         return nombre;
-    }
-
-    @Override
-    public String getApellido() {
-        return apellido;
     }
 
     @Override
@@ -53,7 +48,7 @@ public class Tecnico extends Persona implements TecnicoControllerInt{
             String tel = scan.nextLine();
             System.out.println("direccion");
             String dir = scan.nextLine();
-            listaClientes.add(new Cliente(nom, ape, doc, tel, dir));
+            listaClientes.add(new Cliente(nom, doc, tel, dir));
         }
         else System.out.println("UD NO PUEDE HACER ESTO");
     }

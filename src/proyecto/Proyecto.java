@@ -31,8 +31,8 @@ public class Proyecto {
         System.out.println(admin.toString());*
          */        
         ArrayList<Persona> clientes = new ArrayList<>();
-        Admin admin = new Admin("Carlos","Prada",1098779983, "300863938","cra 7 # 13-17");
-        Tecnico tecnico = new Tecnico("juan","cho",1098273749,"3002452345","Cra 2 # 3-43");
+        Admin admin = new Admin("Carlos",1098779983, "300863938","cra 7 # 13-17");
+        Tecnico tecnico = new Tecnico("juan",1098273749,"3002452345","Cra 2 # 3-43");
         System.out.println(tecnico.toString());
         //tecnico.crearCliente(tecnico, clientes);
         System.out.println(clientes);

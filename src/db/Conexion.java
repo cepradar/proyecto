@@ -16,9 +16,10 @@ public class Conexion {
     
     public Conexion(){
         try {
-            Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection(strConexion,"root","admin");
-            System.out.println("conexion establecida");
+            if(conn!=null){
+                System.out.println("conexion establecida");
+            }
         } catch (Exception e) {
             System.out.println("error de conexion "+ e);
         }   

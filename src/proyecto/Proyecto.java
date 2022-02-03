@@ -11,7 +11,7 @@ import modelo.Admin;
 import modelo.Cliente;
 import modelo.Persona;
 import modelo.Tecnico;
-import vista.NewJFrame;
+import vista.Principal;
 import vista.Principal;
 
 /**

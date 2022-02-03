@@ -1,0 +1,1 @@
+INSERT INTO electrodomesticos VALUES (null, 'lavadora', 'LG', '314123', 'nadie', 1) 

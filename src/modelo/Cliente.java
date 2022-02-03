@@ -3,23 +3,48 @@ package modelo;
 import java.util.ArrayList;
 
 public class Cliente extends Persona{
-    private ArrayList<Electrodomestico> electrodomesticos;
+    
+    private int idCliente;
 
-    public Cliente(String nombre, double documento, String telefono, String direccion) {
-        super(nombre, documento, telefono, direccion);
-        this.electrodomesticos = null;
-        this.idTipoUsuario = 3;
+    public int getIdCliente() {
+        return idCliente;
     }
 
-    public void nuevoElectrodomestico(Electrodomestico electrodomestico){
-        this.electrodomesticos.add(electrodomestico);
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+    
+    public String getNombre() {
+        return nombre;
     }
 
-    public ArrayList<Electrodomestico> getElectrodomesticos() {
-        return electrodomesticos;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setElectrodomesticos(ArrayList<Electrodomestico> electrodomesticos) {
-        this.electrodomesticos = electrodomesticos;
+    @Override
+    public String getDocumento() {
+        return documento;
     }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
 }

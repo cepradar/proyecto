@@ -5,7 +5,6 @@
 package vista;
 
 import controlador.InterfaceControllerInt;
-import db.ClientesBl;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import db.Conexion;
@@ -13,6 +12,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import modelo.Cliente;
 
 /**
  *
@@ -28,7 +28,7 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
         initComponents();
         jDfechaActual.setCalendar(this.horaActual());
         
-        String[] titulos = {"ID", "Nombre", "apellido"};
+        String[] titulos = {"ID", "Nombre", "documento", "telefono", "direccion"};
         modelo = new DefaultTableModel(null, titulos);
         tblClientes.setModel(modelo);
         mostrarDatosCliente();
@@ -60,12 +60,12 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
         txtNombre = new javax.swing.JTextField();
         txtDocumento = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
-        jTextFieldDireccion = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
         jTextFieldArticulo = new javax.swing.JTextField();
         jTextFieldModelo = new javax.swing.JTextField();
         jTextFieldSerie = new javax.swing.JTextField();
         jTextFieldDescripcion = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -129,7 +129,7 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
 
         txtTelefono.setText("jTextField3");
 
-        jTextFieldDireccion.setText("jTextField4");
+        txtDireccion.setText("jTextField4");
 
         jTextFieldArticulo.setText("jTextField5");
 
@@ -139,10 +139,10 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
 
         jTextFieldDescripcion.setText("jTextField8");
 
-        jButton1.setText("OK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -182,14 +182,14 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
                             .addComponent(jTextFieldSerie)
                             .addComponent(jTextFieldModelo)
                             .addComponent(jTextFieldArticulo)
-                            .addComponent(jTextFieldDireccion)
+                            .addComponent(txtDireccion)
                             .addComponent(txtTelefono)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jTextFieldDescripcion))))
+                            .addComponent(btnGuardar)
+                            .addComponent(jTextFieldDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE))))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -229,7 +229,7 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -247,7 +247,7 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
                     .addComponent(jLabel8)
                     .addComponent(jTextFieldDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btnGuardar)
                 .addContainerGap(230, Short.MAX_VALUE))
         );
 
@@ -356,7 +356,7 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Conexion objConexion = new Conexion();
         if (this.txtNombre.getText().length() != 0 && this.txtDocumento.getText().length() != 0 
                 && this.txtTelefono.getText().length() != 0 && this.jTextFieldSerie.getText().length() != 0) {
@@ -365,7 +365,7 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
         }else this.jTextField1.setText("no guardar");
         
         this.mostrarDatosCliente();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -378,9 +378,9 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
       Conexion objConexion = new Conexion();
         
-        ClientesBl objClientesBl = recuperarDataGUI();
+        Cliente objCliente = recuperarDataGUI();
         
-        String strSentenciaInsert = String.format("UPDATE Clientes SET Nombre='%s', Documento='%s' WHERE ID=%d",objClientesBl.getNombre(), objClientesBl.getDocumento(), objClientesBl.getID());
+        String strSentenciaInsert = String.format("UPDATE Clientes SET Nombre='%s', Documento='%s' WHERE ID=%d",objCliente.getNombre(), objCliente.getDocumento(), objCliente.getIdCliente());
         
         objConexion.ejecutarSentenciaSQL(strSentenciaInsert);
         
@@ -402,9 +402,9 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
         Conexion objConexion = new Conexion();
         
-        ClientesBl objClientesBl = recuperarDataGUI();
+        Cliente objCliente = recuperarDataGUI();
         
-        String strSentenciaInsert = String.format("DELETE FROM Clientes WHERE ID=%d",objClientesBl.getID());
+        String strSentenciaInsert = String.format("DELETE FROM Clientes WHERE ID=%d",objCliente.getIdCliente());
         objConexion.ejecutarSentenciaSQL(strSentenciaInsert);
         
         this.mostrarDatosCliente();
@@ -448,7 +448,7 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnEditar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDfechaActual;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -473,10 +473,10 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldArticulo;
     private javax.swing.JTextField jTextFieldDescripcion;
-    private javax.swing.JTextField jTextFieldDireccion;
     private javax.swing.JTextField jTextFieldModelo;
     private javax.swing.JTextField jTextFieldSerie;
     private javax.swing.JTable tblClientes;
+    private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtDocumento;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombre;
@@ -492,24 +492,24 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
     public void guardarOt() {
         Conexion objConexion = new Conexion();
         
-        ClientesBl objClientesBl = recuperarDataGUI();
+        Cliente objCliente = recuperarDataGUI();
         
-        String strSentenciaInsert = String.format("INSERT INTO Clientes (ID, Nombre, apellido, documento, telefono)"
-                + " VALUES (null, '%s', '%s', '%s', '%s')", objClientesBl.getNombre(), objClientesBl.getApellido(), objClientesBl.getDocumento(), objClientesBl.getTelefono());
+        String strSentenciaInsert = String.format("INSERT INTO Clientes (idCliente, Nombre, Documento, Telefono, Direccion)"
+                + " VALUES (null, '%s', '%s', '%s', '%s')", objCliente.getNombre(), objCliente.getDocumento(), objCliente.getTelefono(), objCliente.getDireccion());
         objConexion.ejecutarSentenciaSQL(strSentenciaInsert);
         
     }
     
-    public ClientesBl recuperarDataGUI(){
-        ClientesBl objClientesBl = new ClientesBl();
+    public Cliente recuperarDataGUI(){
+        Cliente objCliente = new Cliente();
         int ID = (txtID.getText().isEmpty())?0: Integer.parseInt(txtID.getText()); 
         
-        objClientesBl.setID(ID);
-        objClientesBl.setNombre(txtNombre.getText());
-        objClientesBl.setApellido(txtNombre.getText());
-        objClientesBl.setDocumento(txtDocumento.getText());
-        objClientesBl.setTelefono(txtTelefono.getText());
-        return objClientesBl;
+        objCliente.setIdCliente(ID);
+        objCliente.setNombre(txtNombre.getText());
+        objCliente.setDocumento(txtDocumento.getText());
+        objCliente.setTelefono(txtTelefono.getText());
+        objCliente.setDireccion(txtDireccion.getText());
+        return objCliente;
     }
     
     public void mostrarDatosCliente(){
@@ -523,13 +523,13 @@ public class NewJFrame extends javax.swing.JFrame implements InterfaceController
             ResultSet resultado = objConexion.consultarRegistros("SELECT * FROM Clientes");
             
             while (resultado.next()) {
-                System.out.println(resultado.getString("ID"));
+                System.out.println(resultado.getString("idCliente"));
                 System.out.println(resultado.getString("Nombre"));
-                System.out.println(resultado.getString("apellido"));
                 System.out.println(resultado.getString("documento"));
                 System.out.println(resultado.getString("telefono"));
+                System.out.println(resultado.getString("direccion"));
                 //recuperando los datos del cliente para mostrarlos en la tabla
-                Object[] oCliente = {resultado.getString("ID"), resultado.getString("Nombre"), resultado.getString("Apellido")};
+                Object[] oCliente = {resultado.getString("idCliente"), resultado.getString("Nombre"), resultado.getString("documento"), resultado.getString("telefono"), resultado.getString("direccion")};
                 
                 modelo.addRow(oCliente);
             }

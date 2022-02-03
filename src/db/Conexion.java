@@ -11,13 +11,13 @@ import java.sql.*;
  * @author Carlos Prada
  */
 public class Conexion {
-    String strConexion = "jdbc:sqlite:C:/Users/Carlos Prada/Documents/NetBeansProjects/proyecto/src/Sistema.s3db";
+    String strConexion = "jdbc:mysql://127.0.0.1:3306/yoreparo";
     Connection conn = null;
     
     public Conexion(){
         try {
             Class.forName("org.sqlite.JDBC");
-            conn = DriverManager.getConnection(strConexion);
+            conn = DriverManager.getConnection(strConexion,"root","admin");
             System.out.println("conexion establecida");
         } catch (Exception e) {
             System.out.println("error de conexion "+ e);
@@ -29,7 +29,7 @@ public class Conexion {
             pstn.execute();
             return 1;
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.println(e+"hola");
             return 0;
         }
     }
@@ -39,7 +39,7 @@ public class Conexion {
             ResultSet respuesta = pstn.executeQuery();
             return respuesta;
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.println(e+"holaaa");
             return null;
         }
     }

@@ -15,6 +15,10 @@ import modelo.Cliente;
  */
 public class IngresarCliente extends javax.swing.JFrame {
 
+    static void main() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 
     /**
      * Creates new form IngresarCliente

@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/modelo/Cliente.java</file>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/modelo/Persona.java</file>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/modelo/Tecnico.java</file>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/vista/NewJFrame.java</file>
+            <file>file:/C:/Users/SERVIPRADA/Documents/NetBeansProjects/proyecto/src/vista/IngresarCliente.java</file>
+            <file>file:/C:/Users/SERVIPRADA/Documents/NetBeansProjects/proyecto/src/db/Conexion.java</file>
+            <file>file:/C:/Users/SERVIPRADA/Documents/NetBeansProjects/proyecto/src/vista/Principal.java</file>
+            <file>file:/C:/Users/SERVIPRADA/Documents/NetBeansProjects/proyecto/src/vista/CrearOT.java</file>
         </group>
     </open-files>
 </project-private>

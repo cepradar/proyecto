@@ -11,6 +11,7 @@ import modelo.Admin;
 import modelo.Cliente;
 import modelo.Persona;
 import modelo.Tecnico;
+import vista.Inicio;
 import vista.Principal;
 import vista.Principal;
 
@@ -38,7 +39,9 @@ public class Proyecto {
         //tecnico.crearCliente(tecnico, clientes);
        // System.out.println(clientes);
         //JFrame v = new NewJFrame();
-        Conexion con = new Conexion();
+        //Conexion con = new Conexion();
+        Inicio nuevaVentana = new Inicio();
+        nuevaVentana.setVisible(true);
     }
     
 }

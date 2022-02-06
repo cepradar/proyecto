@@ -2,15 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< Updated upstream
         <group>
-            <file>file:/C:/Users/SERVIPRADA/Documents/NetBeansProjects/proyecto/src/vista/IngresarCliente.java</file>
-            <file>file:/C:/Users/SERVIPRADA/Documents/NetBeansProjects/proyecto/src/db/Conexion.java</file>
-            <file>file:/C:/Users/SERVIPRADA/Documents/NetBeansProjects/proyecto/src/vista/Principal.java</file>
-            <file>file:/C:/Users/SERVIPRADA/Documents/NetBeansProjects/proyecto/src/vista/CrearOT.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/proyecto/src/vista/IngresarCliente.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/proyecto/src/vista/Principal.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/proyecto/src/vista/IngresarElectrodomestico.java</file>
         </group>
-=======
-        <group/>
->>>>>>> Stashed changes
     </open-files>
 </project-private>

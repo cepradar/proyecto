@@ -101,12 +101,15 @@ public class Principal extends javax.swing.JFrame implements InterfaceController
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             .addGap(0, 949, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 404, Short.MAX_VALUE)
 =======
+=======
+>>>>>>> Stashed changes
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jDfechaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -119,6 +122,9 @@ public class Principal extends javax.swing.JFrame implements InterfaceController
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDfechaActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(189, Short.MAX_VALUE))
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         );
 
@@ -218,7 +224,11 @@ public class Principal extends javax.swing.JFrame implements InterfaceController
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 .addContainerGap(387, Short.MAX_VALUE))
+=======
+                .addContainerGap(408, Short.MAX_VALUE))
+>>>>>>> Stashed changes
 =======
                 .addContainerGap(408, Short.MAX_VALUE))
 >>>>>>> Stashed changes
@@ -270,7 +280,11 @@ public class Principal extends javax.swing.JFrame implements InterfaceController
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnGuardar)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 .addContainerGap(157, Short.MAX_VALUE))
+=======
+                .addContainerGap(264, Short.MAX_VALUE))
+>>>>>>> Stashed changes
 =======
                 .addContainerGap(264, Short.MAX_VALUE))
 >>>>>>> Stashed changes
@@ -338,7 +352,11 @@ public class Principal extends javax.swing.JFrame implements InterfaceController
                         .addGap(57, 57, 57)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)))
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 .addContainerGap(453, Short.MAX_VALUE))
+=======
+                .addContainerGap(492, Short.MAX_VALUE))
+>>>>>>> Stashed changes
 =======
                 .addContainerGap(492, Short.MAX_VALUE))
 >>>>>>> Stashed changes
@@ -355,7 +373,11 @@ public class Principal extends javax.swing.JFrame implements InterfaceController
                 .addGap(46, 46, 46)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 .addContainerGap(199, Short.MAX_VALUE))
+=======
+                .addContainerGap(333, Short.MAX_VALUE))
+>>>>>>> Stashed changes
 =======
                 .addContainerGap(333, Short.MAX_VALUE))
 >>>>>>> Stashed changes
@@ -364,6 +386,7 @@ public class Principal extends javax.swing.JFrame implements InterfaceController
         jTabbedPane1.addTab("BD", jPanel3);
         jTabbedPane1.addTab("Crear Cliente", jScrollPane1);
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -422,10 +445,13 @@ public class Principal extends javax.swing.JFrame implements InterfaceController
 
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -437,11 +463,16 @@ public class Principal extends javax.swing.JFrame implements InterfaceController
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
 =======
+=======
+>>>>>>> Stashed changes
             .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 993, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         );
 

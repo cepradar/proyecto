@@ -410,10 +410,14 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           <Group type="102" alignment="0" attributes="0">
               <Component id="jInternalFrame1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
+=======
+          <Component id="jTabbedPane1" alignment="0" pref="993" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
 =======
           <Component id="jTabbedPane1" alignment="0" pref="993" max="32767" attributes="0"/>
 >>>>>>> Stashed changes
@@ -422,10 +426,14 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Component id="jInternalFrame1" min="-2" max="-2" attributes="0"/>
           </Group>
+=======
+          <Component id="jTabbedPane1" alignment="0" pref="570" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
 =======
           <Component id="jTabbedPane1" alignment="0" pref="570" max="32767" attributes="0"/>
 >>>>>>> Stashed changes
@@ -435,6 +443,7 @@
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
       <Layout>
         <DimensionLayout dim="0">
@@ -522,6 +531,14 @@
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Inicio">
                 <Property name="tabTitle" type="java.lang.String" value="Inicio"/>
+=======
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Inicio">
+                <Property name="tabTitle" type="java.lang.String" value="Inicio"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -567,6 +584,7 @@
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Nueva OT">
                 <Property name="tabTitle" type="java.lang.String" value="Nueva OT"/>
+>>>>>>> Stashed changes
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -574,6 +592,54 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< Updated upstream
+                  <Component id="jLabel1" pref="988" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jDfechaActual" min="-2" pref="260" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel1" min="-2" pref="322" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jDfechaActual" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="189" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="com.toedter.calendar.JDateChooser" name="jDfechaActual">
+              <Properties>
+                <Property name="dateFormatString" type="java.lang.String" value="d MMM y HH:mm:ss"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/source/ServiPRada.jpg"/>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel2">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Nueva OT">
+                <Property name="tabTitle" type="java.lang.String" value="Nueva OT"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+=======
+>>>>>>> Stashed changes
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -918,6 +984,9 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
         </Container>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       </SubComponents>
     </Container>

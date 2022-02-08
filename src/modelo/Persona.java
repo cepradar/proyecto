@@ -11,7 +11,7 @@ package modelo;
 public class Persona {
     
     public String nombre;
-    protected String documento;
+    protected int documento;
     protected String telefono;
     protected String direccion;
 
@@ -23,11 +23,11 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public String getDocumento() {
+    public int getDocumento() {
         return documento;
     }
 
-    public void setDocumento(String documento) {
+    public void setDocumento(int documento) {
         this.documento = documento;
     }
 

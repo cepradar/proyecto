@@ -170,12 +170,12 @@ public class IngresarCliente extends javax.swing.JFrame {
         if (this.txtNombre.getText().length() != 0 && this.txtDocumento.getText().length() != 0 
                 && this.txtTelefono.getText().length() != 0 && this.txtDireccion.getText().length() != 0) {
             this.txtConfirmacion.setText("guardado");
-            guardarOt();
+            guardarCliente();
             try {
             ResultSet resultado = objConexion.consultarRegistros("SELECT * FROM Clientes");
             //while para capturar el id del ultimo usuario registrado
             while(resultado.next()){
-                    aux = resultado.getString("idCliente");
+                    aux = resultado.getString("Documento");
                 }
                 txtID.setText(aux);
                 txtNombre.setEditable(false);
@@ -249,13 +249,13 @@ public class IngresarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 
-    public void guardarOt() {
+    public void guardarCliente() {
         Conexion objConexion = new Conexion();
         
         Cliente objCliente = recuperarDataGUI();
         
-        String strSentenciaInsert = String.format("INSERT INTO Clientes (idCliente, Nombre, Documento, Telefono, Direccion)"
-                + " VALUES (null, '%s', '%s', '%s', '%s')", objCliente.getNombre(), objCliente.getDocumento(), objCliente.getTelefono(), objCliente.getDireccion());
+        String strSentenciaInsert = String.format("INSERT INTO Clientes (Nombre, Documento, Telefono, Direccion)"
+                + " VALUES ('%s', '%d', '%s', '%s')", objCliente.getNombre(), objCliente.getDocumento(), objCliente.getTelefono(), objCliente.getDireccion());
         objConexion.ejecutarSentenciaSQL(strSentenciaInsert);
         
     }
@@ -264,11 +264,10 @@ public class IngresarCliente extends javax.swing.JFrame {
         Cliente objCliente = new Cliente();
         
         //linea comentada era para agregar el id manualmente a la BD pero se opto por un autoincrementable
-        int ID = (txtID.getText().isEmpty())?0: Integer.parseInt(txtID.getText()); 
         
-        objCliente.setIdCliente(ID);
+        
+        objCliente.setDocumento(Integer.parseInt(txtDocumento.getText()));
         objCliente.setNombre(txtNombre.getText());
-        objCliente.setDocumento(txtDocumento.getText());
         objCliente.setTelefono(txtTelefono.getText());
         objCliente.setDireccion(txtDireccion.getText());
         return objCliente;
@@ -282,7 +281,7 @@ public class IngresarCliente extends javax.swing.JFrame {
         try {
             ResultSet resultado = objConexion.consultarRegistros("SELECT * FROM Clientes");
             resultado.last();
-            txtID.setText(resultado.getString("idCliente"));
+            txtID.setText(resultado.getString("Documento"));
         } catch (Exception e) {
             System.out.println(e);
         }

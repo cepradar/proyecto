@@ -19,7 +19,7 @@ public class Tecnico extends Persona implements TecnicoControllerInt{
         return nombre;
     }
 
-    public String getDocumento() {
+    public int getDocumento() {
         return documento;
     }
 

@@ -4,16 +4,6 @@ import java.util.ArrayList;
 
 public class Cliente extends Persona{
     
-    private int idCliente;
-
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
-    }
-    
     public String getNombre() {
         return nombre;
     }
@@ -23,11 +13,11 @@ public class Cliente extends Persona{
     }
 
     @Override
-    public String getDocumento() {
+    public int getDocumento() {
         return documento;
     }
 
-    public void setDocumento(String documento) {
+    public void setDocumento(int documento) {
         this.documento = documento;
     }
 

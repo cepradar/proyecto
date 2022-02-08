@@ -4,6 +4,15 @@
  */
 package vista;
 
+import com.mysql.cj.jdbc.PreparedStatementWrapper;
+import db.Conexion;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import jdk.jfr.DataAmount;
+import modelo.Electrodomestico;
+import modelo.OT;
+import java.sql.*;
+
 /**
  *
  * @author SERVIPRADA
@@ -13,8 +22,10 @@ public class CrearOT extends javax.swing.JFrame {
     /**
      * Creates new form CrearOT
      */
+    
     public CrearOT() {
         initComponents();
+        txtFecha.setText(LocalDate.now().toString());
     }
 
     /**
@@ -29,14 +40,67 @@ public class CrearOT extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtIdTecnico = new javax.swing.JTextField();
+        txtIdElectrodomestico = new javax.swing.JTextField();
+        txtAccesorios = new javax.swing.JTextField();
+        txtHistoria = new javax.swing.JTextField();
+        txtCostoRevision = new javax.swing.JTextField();
+        btnGuardarOT = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        txtFecha = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        txtConfirmacion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Cedula Cliente");
+        jLabel1.setText("ID Tecnico");
 
-        jLabel2.setText("N° Serie Electrodomestico");
+        jLabel2.setText("ID Electrodomestico");
 
         jLabel3.setText("Costo Revision");
+
+        jLabel4.setText("Fecha Recepcion");
+
+        jLabel5.setText("Accesorios Recibidos");
+
+        jLabel6.setText("Historia Triste");
+
+        txtIdTecnico.setText("jTextField1");
+
+        txtIdElectrodomestico.setText("jTextField2");
+
+        txtAccesorios.setText("jTextField4");
+
+        txtHistoria.setText("jTextField5");
+
+        txtCostoRevision.setEditable(false);
+        txtCostoRevision.setText("5000");
+
+        btnGuardarOT.setText("Guardar");
+        btnGuardarOT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarOTActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Cancelar");
+
+        jLabel7.setText("N°");
+
+        txtFecha.setEditable(false);
+
+        jTextField2.setEditable(false);
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        txtConfirmacion.setText("jTextField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -45,25 +109,116 @@ public class CrearOT extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addContainerGap(267, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtIdTecnico, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                            .addComponent(txtIdElectrodomestico)
+                            .addComponent(txtAccesorios)
+                            .addComponent(txtHistoria)
+                            .addComponent(txtCostoRevision)
+                            .addComponent(txtFecha))
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(105, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtConfirmacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(btnGuardarOT)
+                .addGap(85, 85, 85)
+                .addComponent(jButton2)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtIdTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtIdElectrodomestico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtAccesorios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtConfirmacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtHistoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtCostoRevision, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardarOT)
+                    .addComponent(jButton2))
+                .addGap(50, 50, 50))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGuardarOTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarOTActionPerformed
+        // TODO add your handling code here:
+        String aux = null;
+        Conexion objConexion = new Conexion();
+        if (this.txtIdTecnico.getText().length() != 0 && this.txtIdElectrodomestico.getText().length() != 0 
+                && this.txtAccesorios.getText().length() != 0 && this.txtCostoRevision.getText().length() != 0 ) {
+            this.txtConfirmacion.setText("guardado");
+            guardarOT();
+//            try {
+//            ResultSet resultado = objConexion.consultarRegistros("SELECT * FROM Clientes");
+//            //while para capturar el id del ultimo usuario registrado
+//            while(resultado.next()){
+//                    aux = resultado.getString("idCliente");
+//                }
+//                txtID.setText(aux);
+//                txtNombre.setEditable(false);
+//                txtDocumento.setEditable(false);
+//                txtTelefono.setEditable(false);
+//                txtDireccion.setEditable(false);
+//                btnGuardarCliente.setVisible(false);
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+        }else{
+            
+            this.txtConfirmacion.setText("no guardado");
+        }
+        
+        this.setVisible(false);
+        this.dispose();
+        
+    }//GEN-LAST:event_btnGuardarOTActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,8 +256,47 @@ public class CrearOT extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGuardarOT;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtAccesorios;
+    private javax.swing.JTextField txtConfirmacion;
+    private javax.swing.JTextField txtCostoRevision;
+    private javax.swing.JTextField txtFecha;
+    private javax.swing.JTextField txtHistoria;
+    private javax.swing.JTextField txtIdElectrodomestico;
+    private javax.swing.JTextField txtIdTecnico;
     // End of variables declaration//GEN-END:variables
+    Conexion objConexion = new Conexion();
+    
+    public void guardarOT() {
+        
+        OT objOT = recuperarDataGUI();
+        String strSentenciaInsert = String.format("INSERT INTO OT (idOT, Tecnico_idTecnico, Electrodomestico_idElectrodomestico, FechaRecepcion, ValorRevision, AccesoriosRecibidos, HistoriaDaño)"
+                + " VALUES (null, '%d', '%d', '%s', '%s', '%s', '%s')", objOT.getIdTecnico(), objOT.getIdElectrodomestico(), objOT.getFechaRecepcion(), objOT.getValorRevision(), objOT.getAccesoriosRecibidos(), objOT.getHistoria());
+        objConexion.ejecutarSentenciaSQL(strSentenciaInsert);
+        
+    }
+    
+     private OT recuperarDataGUI() {
+        OT objOT = new OT();
+        
+        //linea comentada era para agregar el id manualmente a la BD pero se opto por un autoincrementable
+        int idElec = (txtIdElectrodomestico.getText().isEmpty())?0: Integer.parseInt(txtIdElectrodomestico.getText()); 
+        int idTec = (txtIdTecnico.getText().isEmpty())?0: Integer.parseInt(txtIdTecnico.getText());
+        objOT.setIdElectrodomestico(idElec);
+        objOT.setIdTecnico(idTec);
+        objOT.setFechaRecepcion(LocalDate.now());
+        objOT.setValorRevision(Integer.parseInt(txtCostoRevision.getText()));
+        objOT.setAccesoriosRecibidos(txtAccesorios.getText());
+        objOT.setHistoria(txtHistoria.getText());
+        return objOT;
+    }
 }

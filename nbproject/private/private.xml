@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/vista/IngresarElectrodomestico.java</file>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/vista/CrearOT.java</file>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/vista/Principal.java</file>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/vista/IngresarCliente.java</file>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/modelo/Cliente.java</file>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/vista/HoraActual.java</file>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/proyecto/Proyecto.java</file>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/db/Conexion.java</file>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/controlador/InterfaceControllerInt.java</file>
-            <file>file:/C:/Users/Carlos%20Prada/Documents/NetBeansProjects/proyecto/src/vista/Inicio.java</file>
+            <file>file:/C:/Users/SERVIPRADA/Documents/NetBeansProjects/proyecto/src/vista/IngresarCliente.java</file>
+            <file>file:/C:/Users/SERVIPRADA/Documents/NetBeansProjects/proyecto/src/modelo/OT.java</file>
+            <file>file:/C:/Users/SERVIPRADA/Documents/NetBeansProjects/proyecto/src/vista/IngresarElectrodomestico.java</file>
+            <file>file:/C:/Users/SERVIPRADA/Documents/NetBeansProjects/proyecto/src/vista/CrearOT.java</file>
         </group>
     </open-files>
 </project-private>

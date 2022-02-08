@@ -5,16 +5,10 @@ import java.util.Date;
 
 public class Electrodomestico {
     public String tipo;
-    public Date fecha;
-    public Boolean reparado;
-    public ArrayList<String> accesorios;
-
-    public Electrodomestico(String tipo, Date fecha, Boolean reparado, ArrayList<String> accesorios) {
-        this.tipo = tipo;
-        this.fecha = fecha;
-        this.reparado = reparado;
-        this.accesorios = accesorios;
-    }
+    public String marca;
+    public String modelo;
+    public String nSerie;
+    public int idDueño;
 
     public String getTipo() {
         return tipo;
@@ -24,37 +18,42 @@ public class Electrodomestico {
         this.tipo = tipo;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
-    public Boolean getReparado() {
-        return reparado;
+    public String getModelo() {
+        return modelo;
     }
 
-    public void setReparado(Boolean reparado) {
-        this.reparado = reparado;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
-    public ArrayList<String> getAccesorios() {
-        return accesorios;
+    public String getnSerie() {
+        return nSerie;
     }
 
-    public void setAccesorios(ArrayList<String> accesorios) {
-        this.accesorios = accesorios;
+    public void setnSerie(String nSerie) {
+        this.nSerie = nSerie;
+    }
+
+    public int getIdDueño() {
+        return idDueño;
+    }
+
+    public void setIdDueño(int idDueño) {
+        this.idDueño = idDueño;
     }
 
     @Override
     public String toString() {
-        return "Electrodomestico{" +
-                "tipo='" + tipo + '\'' +
-                ", fecha=" + fecha +
-                ", reparado=" + reparado +
-                ", accesorios=" + accesorios +
-                '}';
+        return "Electrodomestico{" + "tipo=" + tipo + ", marca=" + marca + ", modelo=" + modelo + ", nSerie=" + nSerie + ", idDue\u00f1o=" + idDueño + '}';
     }
+    
+       
 }

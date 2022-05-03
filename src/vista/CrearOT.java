@@ -279,7 +279,7 @@ public class CrearOT extends javax.swing.JFrame {
     public void guardarOT() {
         
         OT objOT = recuperarDataGUI();
-        String strSentenciaInsert = String.format("INSERT INTO OT (idOT, Tecnico_idTecnico, Electrodomestico_idElectrodomestico, FechaRecepcion, ValorRevision, AccesoriosRecibidos, HistoriaDaño)"
+        String strSentenciaInsert = String.format("INSERT INTO OT (idOT, Tecnico_idTecnico, Clientes_idCliente, FechaRecepcion, ValorRevision, AccesoriosRecibidos, HistoriaDaño)"
                 + " VALUES (null, '%d', '%d', '%s', '%s', '%s', '%s')", objOT.getIdTecnico(), objOT.getIdElectrodomestico(), objOT.getFechaRecepcion(), objOT.getValorRevision(), objOT.getAccesoriosRecibidos(), objOT.getHistoria());
         objConexion.ejecutarSentenciaSQL(strSentenciaInsert);
         
@@ -293,7 +293,7 @@ public class CrearOT extends javax.swing.JFrame {
         int idTec = (txtIdTecnico.getText().isEmpty())?0: Integer.parseInt(txtIdTecnico.getText());
         objOT.setIdElectrodomestico(idElec);
         objOT.setIdTecnico(idTec);
-        objOT.setFechaRecepcion(LocalDate.now());
+        objOT.setFechaRecepcion(LocalDateTime.now().toString());
         objOT.setValorRevision(Integer.parseInt(txtCostoRevision.getText()));
         objOT.setAccesoriosRecibidos(txtAccesorios.getText());
         objOT.setHistoria(txtHistoria.getText());

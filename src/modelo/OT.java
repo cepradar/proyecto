@@ -15,8 +15,8 @@ import java.util.Date;
 public class OT {
     public int idTecnico;
     public int idElectrodomestico;
-    public LocalDate fechaRecepcion;
-    public LocalDate fechaEntrega;
+    public String fechaRecepcion;
+    public String fechaEntrega;
     public int valorRevision;
     public String accesoriosRecibidos;
     public String Historia;
@@ -38,19 +38,19 @@ public class OT {
         this.idElectrodomestico = idElectrodomestico;
     }
 
-    public LocalDate getFechaRecepcion() {
+    public String getFechaRecepcion() {
         return fechaRecepcion;
     }
 
-    public void setFechaRecepcion(LocalDate fechaRecepcion) {
+    public void setFechaRecepcion(String fechaRecepcion) {
         this.fechaRecepcion = fechaRecepcion;
     }
 
-    public LocalDate getFechaEntrega() {
+    public String getFechaEntrega() {
         return fechaEntrega;
     }
 
-    public void setFechaEntrega(LocalDate fechaEntrega) {
+    public void setFechaEntrega(String fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
 
